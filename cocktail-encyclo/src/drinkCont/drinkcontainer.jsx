@@ -1,6 +1,7 @@
 import { useState } from "react"
 import drinks from '../drinks';
 import IndividualDrink from "./indiDrink/indiDrink"
+import './drinkCont.css'
 
 const DrinkContainer = ()=>{
     const[showAll, setShow] = useState(true)
@@ -17,17 +18,18 @@ const DrinkContainer = ()=>{
     }
     return(
         <div>
-            <h1>hey</h1>
             {showDrink.length === 0?
-                drinks.map((drink, index)=>{
-                    return(
-                        <div className="ogdrink" onClick={()=>{drinkPage(index)}}>
-                            <h2>{drink.strDrink}</h2>
-                            <img src={drink.strDrinkThumb} className="drinkImage"></img>
-                    
-                        </div>
-                    )
-                })
+                <div className="index">
+                    {drinks.map((drink, index)=>{
+                        return(
+                            <div className="ogdrink" onClick={()=>{drinkPage(index)}}>
+                                <h2>{drink.strDrink}</h2>
+                                <img src={drink.strDrinkThumb} className="drinkImage"></img>
+                        
+                            </div>
+                        )
+                    })}
+                </div>
             :
                 <div>
                     <button onClick={()=>{indexPage()}}>Back</button>
