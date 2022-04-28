@@ -29,7 +29,10 @@ const DrinkContainer = ()=>{
                     )
                 })
             :
-                <IndividualDrink drink={showDrink[0]}></IndividualDrink>
+                <div>
+                    <button onClick={()=>{indexPage()}}>Back</button>
+                    <IndividualDrink drink={showDrink[0]}></IndividualDrink>
+                </div>
             }
         </div>
     )
