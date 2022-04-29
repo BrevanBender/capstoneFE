@@ -16,16 +16,17 @@ return(
                     return(
                         
                             <div className="ingredients">
-                                {drinkIngredient?
-                                <h6>{eval(`props.drink.${measure}`)}</h6>
-                                :
-                                <></>
-                                }
                                 {drinkMeasure?
                                 <h6>{eval(`props.drink.${measure}`)}</h6>
                                 :
                                 <></>
                                 }
+                                {drinkIngredient?
+                                <h6>{eval(`props.drink.${ingredient}`)}</h6>
+                                :
+                                <></>
+                                }
+                                
                             </div>
                         
                             
@@ -34,7 +35,7 @@ return(
             })
             }
         </div>
-        <p>{props.drink.strInstructions}</p>
+        <p className='instr'>{props.drink.strInstructions}</p>
     </div>
 )
 }

@@ -3,6 +3,7 @@ import drinks from '../drinks';
 import IndividualDrink from "./indiDrink/indiDrink"
 import './drinkCont.css'
 
+
 const DrinkContainer = ()=>{
     const[showAll, setShow] = useState(true)
     const[showDrink, setShowDrink] = useState([])
@@ -23,8 +24,8 @@ const DrinkContainer = ()=>{
                     {drinks.map((drink, index)=>{
                         return(
                             <div className="ogdrink" onClick={()=>{drinkPage(index)}}>
-                                <h2>{drink.strDrink}</h2>
                                 <img src={drink.strDrinkThumb} className="drinkImage"></img>
+                                <h2>{drink.strDrink}</h2>
                         
                             </div>
                         )

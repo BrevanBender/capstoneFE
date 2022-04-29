@@ -1,0 +1,14 @@
+.eachDrink img {
+    width: 40vw;
+    height: auto;
+    
+}
+.eachDrink{
+    display: flex;
+    justify-content: center;
+}
+.indiDrink{
+    width: 80vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: auto;
+}

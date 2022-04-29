@@ -1,15 +1,25 @@
 .ingredients{
     display: flex;
-    margin: 5vw
+    margin: 1vw;
+}
+.ingredients h6{
+    background-color: rgb(167, 146, 102);
+}
+.instr{
+    background-color: rgb(167, 146, 102);
 }
 .infoCont{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 40vw;
+    font-size: 1.3em;
 }
 .ingList{
     display: flex;
     flex-wrap: wrap;
-    
+    justify-content: center;
+    width: 40vw;
+    background-color: rgb(75, 54, 15);
 }
