@@ -1,5 +1,6 @@
 import VarIngredients from "./variantIng"
 import './indiDrink.css'
+import CommentSection from "./comment"
 
 const Variant = (props)=>{
     return(
@@ -13,6 +14,7 @@ const Variant = (props)=>{
             }
             <VarIngredients drink={props.drink}></VarIngredients>
             <p>{props.drink.insructions}</p>
+            <CommentSection drink={props.drink} drinkComment={props.drinkComment}></CommentSection>
             </div>
         </div> 
     )

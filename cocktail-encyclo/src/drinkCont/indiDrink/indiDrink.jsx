@@ -38,7 +38,7 @@ const createNewDrink= async (newDrink)=>{
       } 
     
       const drinkComment = async(idToUpdate, drinkToUpdate)=>{
-        const apiResponse = await fetch(`${apiUrl}variants`,{
+        const apiResponse = await fetch(`${apiUrl}variants/${idToUpdate}`,{
           method: "PUT",
           body: JSON.stringify(drinkToUpdate),
           headers:{
@@ -66,11 +66,11 @@ const createNewDrink= async (newDrink)=>{
             <div id="userDrinks">
                 {userDrinks.map((udrink)=>{
                     if(udrink.originalid == props.drink.idDrink){
-                        return( <Variant drink={udrink}></Variant>)
+                        return( <Variant drink={udrink} drinkComment={drinkComment}></Variant>)
                     }
                 })}
             </div>
-            <NewDrink drink={props.drink} createNewDrink={createNewDrink} getDrinks={getDrinks}></NewDrink>
+            <NewDrink drink={props.drink} createNewDrink={createNewDrink} getDrinks={getDrinks} ></NewDrink>
         </div>
     )
 }
