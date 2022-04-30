@@ -1,14 +1,36 @@
 .eachDrink img {
-    width: 40vw;
+    width: 18vw;
+    border-radius: 50%;
     height: auto;
-    
 }
 .eachDrink{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+    background-color: tan;
+    text-align: center;
+    border-radius: 13px;
 }
 .indiDrink{
     width: 80vw;
     background-color: rgba(0, 0, 0, 0.8);
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#userDrinks{
+    display: flex;
+    flex-direction: column;
+}
+.variantDrink{
+    background-color: wheat;
+    width: 40%;
+    border-radius: 13px;
+    margin-top: 4vh;
+}
+.variantDrink:nth-of-type(2n){
+    align-self: end;
 }

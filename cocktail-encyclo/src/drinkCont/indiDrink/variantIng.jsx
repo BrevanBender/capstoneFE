@@ -1,12 +1,12 @@
 import './ingredients.css'
-const Ingredients=(props)=>{
+const VarIngredients=(props)=>{
 const fifteen = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 return(
-    <div className='infoCont'>
+    <div className='vinfoCont'>
         <div className='ingList'>
             {fifteen.map((number)=>{
-                const ingredient = `strIngredient${number}`
-                const measure = `strMeasure${number}`
+                const ingredient = `ingredient${number}`
+                const measure = `measure${number}`
                 const drinkIngredient = eval(`props.drink.${ingredient}`)
                 const drinkMeasure = eval(`props.drink.${measure}`)
                 if (drinkIngredient){
@@ -37,4 +37,4 @@ return(
     </div>
 )
 }
-export default Ingredients
+export default VarIngredients
