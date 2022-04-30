@@ -1,11 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import drinks from '../drinks';
 import IndividualDrink from "./indiDrink/indiDrink"
 import './drinkCont.css'
+import Ingredients from "./indiDrink/ingredients";
 
 
 const DrinkContainer = ()=>{
     const[showAll, setShow] = useState(true)
+    const [desiredDrink, setDesiredDrink] = useState([])
     const[showDrink, setShowDrink] = useState([])
     const drinkPage = (idx)=>{
         console.log(idx)
@@ -14,14 +16,55 @@ const DrinkContainer = ()=>{
             drinks[idx]
         ])
     }
+    const convertDrinks = ()=>{
+        let trialarr = []
+        drinks.forEach((drink)=>{
+            let convertDrink = {}
+            convertDrink.strDrink = drink.strDrink
+            convertDrink.strDrinkThumb = drink.strDrinkThumb
+            convertDrink.strInstructions = drink.strInstructions
+            convertDrink.ingredients = []
+            for(let i=1; i<15; i++){
+                convertDrink.ingredients.push(eval(`drink.strIngredient${i}`))
+            }
+            trialarr.push(convertDrink)
+        })
+        console.log(trialarr)
+        setDesiredDrink(trialarr)
+    }
+    
     const indexPage =()=>{
         setShowDrink([])
+    }
+    useEffect(convertDrinks, [])
+    const handleFilter= (phrase, drink)=>{
+        console.log(`phrase ${phrase}`)
+        console.log(`drink is ${drink}`)
+        const fifteen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+            const ingredients = []
+            let counter = 0
+            for(let num of fifteen){
+                ingredients.push(eval(`drink.strIngredient${num}`))
+                }
+            ingredients.forEach((ing)=>{
+                if(ing.contains(phrase)){
+                    counter++
+            }})
+            if(counter > 0){
+                return true
+            }
+            
+        }
+    const updateFilter =(e)=>{
+        const filterDrink = desiredDrink.filter(handleFilter(e.target.value))
+        setDesiredDrink(filterDrink)
     }
     return(
         <div>
             {showDrink.length === 0?
                 <div className="index">
-                    {drinks.map((drink, index)=>{
+                    <input type='text' onChange={updateFilter}></input>
+                    {desiredDrink.map((drink, index)=>{
                         return(
                             <div className="ogdrink" onClick={()=>{drinkPage(index)}}>
                                 <img src={drink.strDrinkThumb} className="drinkImage"></img>
