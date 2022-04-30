@@ -19,6 +19,7 @@ const DrinkContainer = ()=>{
         let trialarr = []
         drinks.forEach((drink)=>{
             let convertDrink = {}
+            convertDrink.idDrink = drink.idDrink
             convertDrink.strDrink = drink.strDrink
             convertDrink.strDrinkThumb = drink.strDrinkThumb
             convertDrink.strInstructions = drink.strInstructions
@@ -38,34 +39,28 @@ const DrinkContainer = ()=>{
     const indexPage =()=>{
         setShowDrink([])
     }
+    
     useEffect(convertDrinks, [])
-    const handleFilter= (phrase, drink)=>{
-        console.log(`phrase ${phrase}`)
-        console.log(`drink is ${drink}`)
-        const fifteen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-            const ingredients = []
-            let counter = 0
-            for(let num of fifteen){
-                ingredients.push(eval(`drink.strIngredient${num}`))
+    const updateFilter = (e)=>{
+        const filterArray = desiredDrink.filter((drink)=>{
+            let i = 0
+            drink.ingredients.forEach((ing)=>{
+                if(ing){
+                if(ing.includes(e.target.value)){
+                    i++
                 }
-            ingredients.forEach((ing)=>{
-                if(ing.contains(phrase)){
-                    counter++
             }})
-            if(counter > 0){
-                return true
-            }
-            
-        }
-    const updateFilter =(e)=>{
-        const filterDrink = desiredDrink.filter(handleFilter(e.target.value))
-        setDesiredDrink(filterDrink)
+            if(i){return drink}
+        })
+        console.log(filterArray)
+        setDesiredDrink(filterArray)
     }
     return(
         <div>
             {showDrink.length === 0?
+            <div>
+                <input type='text' onChange={updateFilter}></input><button onClick={convertDrinks}>All Drinks</button>
                 <div className="index">
-                    <input type='text' onChange={updateFilter}></input>
                     {desiredDrink.map((drink, index)=>{
                         return(
                             <div className="ogdrink" onClick={()=>{drinkPage(drink)}}>
@@ -75,6 +70,7 @@ const DrinkContainer = ()=>{
                             </div>
                         )
                     })}
+                </div>
                 </div>
             :
                 <div>
