@@ -9,11 +9,10 @@ const DrinkContainer = ()=>{
     const[showAll, setShow] = useState(true)
     const [desiredDrink, setDesiredDrink] = useState([])
     const[showDrink, setShowDrink] = useState([])
-    const drinkPage = (idx)=>{
-        console.log(idx)
-        console.log(drinks[idx])
+    const drinkPage = (drink)=>{
+        console.log(drink)
         setShowDrink([
-            drinks[idx]
+            drink
         ])
     }
     const convertDrinks = ()=>{
@@ -27,9 +26,12 @@ const DrinkContainer = ()=>{
             for(let i=1; i<15; i++){
                 convertDrink.ingredients.push(eval(`drink.strIngredient${i}`))
             }
+            convertDrink.measures = []
+            for(let i=1; i<15; i++){
+                convertDrink.measures.push(eval(`drink.strMeasure${i}`))
+            }
             trialarr.push(convertDrink)
         })
-        console.log(trialarr)
         setDesiredDrink(trialarr)
     }
     
@@ -66,7 +68,7 @@ const DrinkContainer = ()=>{
                     <input type='text' onChange={updateFilter}></input>
                     {desiredDrink.map((drink, index)=>{
                         return(
-                            <div className="ogdrink" onClick={()=>{drinkPage(index)}}>
+                            <div className="ogdrink" onClick={()=>{drinkPage(drink)}}>
                                 <img src={drink.strDrinkThumb} className="drinkImage"></img>
                                 <h2>{drink.strDrink}</h2>
                         
