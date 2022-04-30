@@ -35,7 +35,13 @@ const DrinkContainer = ()=>{
         })
         setDesiredDrink(trialarr)
     }
-    
+    const getRandoDrink = ()=>{
+        let num = Math.floor(Math.random()*547 + 1)
+        console.log(desiredDrink[num])
+        setShowDrink([
+            desiredDrink[num]
+        ])
+    }
     const indexPage =()=>{
         setShowDrink([])
     }
@@ -59,7 +65,8 @@ const DrinkContainer = ()=>{
         <div>
             {showDrink.length === 0?
             <div>
-                <input type='text' onChange={updateFilter}></input><button onClick={convertDrinks}>All Drinks</button>
+                <input type='text' onChange={updateFilter} placeholder='Filter By Ingredient'></input><button onClick={convertDrinks}>All Drinks</button>
+                <button onClick={getRandoDrink}>Get Random Drink</button>
                 <div className="index">
                     {desiredDrink.map((drink, index)=>{
                         return(
