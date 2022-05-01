@@ -17,21 +17,21 @@ const NewDrink = (props)=>{
     const[newDrink, setNewDrink] = useState({
         name: '',
         insructions: props.drink.strInstructions,
-        ingredient1: props.drink.strIngredient1,
-        ingredient2: props.drink.strIngredient2,
-        ingredient3: props.drink.strIngredient3,
-        ingredient4: props.drink.strIngredient4,
-        ingredient5: props.drink.strIngredient5,
-        ingredient6: props.drink.strIngredient6,
-        ingredient7: props.drink.strIngredient7,
-        ingredient8: props.drink.strIngredient8,
-        ingredient9: props.drink.strIngredient9,
-        ingredient10: props.drink.strIngredien10,
-        ingredient11: props.drink.strIngredien11,
-        ingredient12: props.drink.strIngredien12,
-        ingredient13: props.drink.strIngredien13,
-        ingredient14: props.drink.strIngredien14,
-        ingredient15: props.drink.strIngredien15,
+        ingredient1: props.drink.ingredients[0],
+        ingredient2: props.drink.ingredients[1],
+        ingredient3: props.drink.ingredients[2],
+        ingredient4: props.drink.ingredients[3],
+        ingredient5: props.drink.ingredients[4],
+        ingredient6: props.drink.ingredients[5],
+        ingredient7: props.drink.ingredients[6],
+        ingredient8: props.drink.ingredients[7],
+        ingredient9: props.drink.ingredients[8],
+        ingredient10: props.drink.ingredients[9],
+        ingredient11: props.drink.ingredients[10],
+        ingredient12: props.drink.ingredients[11],
+        ingredient13: props.drink.ingredients[12],
+        ingredient14: props.drink.ingredients[13],
+        ingredient15: props.drink.ingredients[14],
         measure1: props.drink.strMeasure1,
         measure2: props.drink.strMeasure2,
         measure3: props.drink.strMeasure3,
@@ -73,7 +73,7 @@ const NewDrink = (props)=>{
             setNewDrink({
                 name: '',
         insructions: props.drink.strInstructions,
-        ingredient1: props.drink.strIngredient1,
+        ingredient1: props.drink.ingredients[0],
         ingredient2: props.drink.strIngredient2,
         ingredient3: props.drink.strIngredient3,
         ingredient4: props.drink.strIngredient4,
@@ -109,6 +109,7 @@ const NewDrink = (props)=>{
         comments: [],
         originalid: props.drink.idDrink
             })
+            setShowNew(false)
             }}>
             Drink Name: <input type='text' name="name" onChange={handleInputChange} value={newDrink.name}></input>
             <br />
