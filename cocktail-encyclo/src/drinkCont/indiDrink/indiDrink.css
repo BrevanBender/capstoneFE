@@ -35,3 +35,6 @@
 .variantDrink:nth-of-type(2n){
     align-self: end;
 }
+.vImg{
+    width: 50%;
+}

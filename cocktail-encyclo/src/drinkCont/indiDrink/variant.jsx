@@ -19,7 +19,7 @@ const Variant = (props)=>{
             <h3> {props.drink.name}</h3>
             <div>
                 {props.drink.image?
-                <img src={props.drink.image} alt="" />
+                <img className='vImg'src={props.drink.image} alt="" />
                 :
                 <></>
             }

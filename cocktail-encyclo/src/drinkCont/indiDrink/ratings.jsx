@@ -66,7 +66,7 @@ const RatingSection =(props)=>{
                 <div id="ratings">
                     <form onSubmit={submitRating}>
                         <input type="number" max='5' onChange={handleRatingChange}/>
-                        <button type="submit"></button>
+                        <button type="submit">Submit Rating</button>
                     </form>                         
                 
                 </div>

@@ -113,7 +113,7 @@ const NewDrink = (props)=>{
             }}>
             Drink Name: <input type='text' name="name" onChange={handleInputChange} value={newDrink.name}></input>
             <br />
-            Insructions: <textarea type='text' name="instructions" onChange={handleInputChange} value={newDrink.insructions}></textarea>
+            Insructions: <textarea type='text' name="insructions" onChange={handleInputChange} ></textarea>
             <br />
             <span>Number of Ingredients:</span> <input type='number'  name='numbOfIng' onChange={handleNumChange}></input>
             <br />
